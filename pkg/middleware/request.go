@@ -3,7 +3,7 @@ package middleware
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus"
-	metrics "github.com/turbovladimir/RestApi/internal/app/metrics"
+	"github.com/turbovladimir/RestApi/pkg/metrics"
 	"time"
 )
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/turbovladimir/RestApi/internal/app/metrics"
-	"github.com/turbovladimir/RestApi/internal/app/middleware"
+	"github.com/turbovladimir/RestApi/pkg/metrics"
+	"github.com/turbovladimir/RestApi/pkg/middleware"
 	"net/http"
 )
 
