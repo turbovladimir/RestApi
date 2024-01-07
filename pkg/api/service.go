@@ -29,7 +29,7 @@ type ResponseData struct {
 	Error string `json:"error"`
 }
 
-func NewRouter(routes []Route) *Router {
+func NewRouter(routes []Route, middlewares []gin.HandlerFunc) *Router {
 	engine := gin.Default()
 	engine.ForwardedByClientIP = true
 	err := engine.SetTrustedProxies([]string{"127.0.0.1"})
@@ -38,7 +38,8 @@ func NewRouter(routes []Route) *Router {
 		panic("Cannot set trusted proxies")
 	}
 
-	engine.Use(middleware.RequestMiddleware(metrics.New()))
+	middlewares = append(middlewares, middleware.RequestMiddleware(metrics.New()))
+	engine.Use(middlewares...)
 
 	routes = append(routes,
 		Route{
